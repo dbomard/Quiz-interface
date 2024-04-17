@@ -1,0 +1,66 @@
+[
+    {
+        "id": 3,
+        "name": "Puissance Soul",
+        "questions": [
+            {
+                "id": 3,
+                "question": "Quelle est l'ann\u00e9e de naissance d'Aretha Franklin ?",
+                "deezer_song_id": null,
+                "quiz_id": 3,
+                "answers": [
+                    {
+                        "id": 8,
+                        "answer": "1918",
+                        "question_id": 3,
+                        "right_answer": 0
+                    },
+                    {
+                        "id": 9,
+                        "answer": "1942",
+                        "question_id": 3,
+                        "right_answer": 1
+                    },
+                    {
+                        "id": 10,
+                        "answer": "1939",
+                        "question_id": 3,
+                        "right_answer": 0
+                    }
+                ]
+            },
+            {
+                "id": 4,
+                "question": "Qui est l'interpr\u00e8te de ce tube de 1971 ?",
+                "deezer_song_id": 1133408852,
+                "quiz_id": 3,
+                "answers": [
+                    {
+                        "id": 11,
+                        "answer": "Marvin Gaye",
+                        "question_id": 4,
+                        "right_answer": 1
+                    },
+                    {
+                        "id": 12,
+                        "answer": "Mickael Jackson",
+                        "question_id": 4,
+                        "right_answer": 0
+                    },
+                    {
+                        "id": 13,
+                        "answer": "Lionel Ritchie",
+                        "question_id": 4,
+                        "right_answer": 0
+                    },
+                    {
+                        "id": 14,
+                        "answer": "James Brown",
+                        "question_id": 4,
+                        "right_answer": 0
+                    }
+                ]
+            }
+        ]
+    }
+]
