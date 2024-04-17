@@ -9,12 +9,34 @@
 
 <body>
     <h1>Quiz</h1>
+    <label for="quiz-select">Choisir un quiz :</label>
+    <select name="quiz-select" id="quiz-select">
+        <option value="">-- Choisir un quiz --</option>
+    </select>
+    <button id="startBtn">Commencer le quiz</button>
 </body>
 <script>
-    fetch('./quiz.json')
-        .then((response) => response.json())
-        .then((json) => console.log(json));
+    function beginQuiz(event) {
+        const quizSelect = document.querySelector('#quiz-select');
+        console.log(quizSelect.value);
+    }
+
+    function quizSelect(event) {
+        const select = event.currentTarget;
+        const startQuizBtn = document.querySelector('#startBtn');
+        startQuizBtn.disable = select.value == "";
+    }
+
     document.addEventListener('DOMContentLoaded', () => {
+        const quizSelect = document.querySelector('#quiz-select');
+        quizSelect.addEventListener('click', quizSelect);
+        fetch('./quiz.json')
+            .then((response) => response.json())
+            .then((json) => {
+                for (const quiz of json) {
+                    quizSelect.innerHTML += `<option value="${quiz['id']}">${quiz['name']}</option>`;
+                }
+            });
     })
 </script>
 
