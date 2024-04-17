@@ -13,7 +13,7 @@
     <select name="quiz-select" id="quiz-select">
         <option value="">-- Choisir un quiz --</option>
     </select>
-    <button id="startBtn">Commencer le quiz</button>
+    <button id="startBtn" disabled>Commencer le quiz</button>
 </body>
 <script>
     function beginQuiz(event) {
@@ -24,17 +24,17 @@
     function quizSelect(event) {
         const select = event.currentTarget;
         const startQuizBtn = document.querySelector('#startBtn');
-        startQuizBtn.disable = select.value == "";
+        startQuizBtn.disabled = select.value == "";
     }
 
     document.addEventListener('DOMContentLoaded', () => {
-        const quizSelect = document.querySelector('#quiz-select');
-        quizSelect.addEventListener('click', quizSelect);
+        document.querySelector('#quiz-select').addEventListener('change', quizSelect);
+        document.querySelector('#startBtn').addEventListener('click', beginQuiz);
         fetch('./quiz.json')
             .then((response) => response.json())
             .then((json) => {
                 for (const quiz of json) {
-                    quizSelect.innerHTML += `<option value="${quiz['id']}">${quiz['name']}</option>`;
+                    document.querySelector('#quiz-select').innerHTML += `<option value="${quiz['id']}">${quiz['name']}</option>`;
                 }
             });
     })
