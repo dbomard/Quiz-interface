@@ -8,23 +8,55 @@
 </head>
 
 <body>
-    <h1>Quiz</h1>
-    <label for="quiz-select">Choisir un quiz :</label>
-    <select name="quiz-select" id="quiz-select">
-        <option value="">-- Choisir un quiz --</option>
-    </select>
-    <button id="startBtn" disabled>Commencer le quiz</button>
+    <section id="quizzes">
+        <h1>Quiz</h1>
+        <label for="quiz-select">Choisir un quiz :</label>
+        <select name="quiz-select" id="quiz-select">
+            <option value="">-- Choisir un quiz --</option>
+        </select>
+        <button id="startBtn" disabled>Commencer le quiz</button>
+    </section>
+    <section id="questions">
+        <p>Nombre de points : <span id="points">0</span></p>
+
+    </section>
+    <template id="question">
+        <h4>Question n°xx</h4>
+        <p>Texte de la question</p>
+        <audio src="#" controls></audio>
+        <img src="#" alt="illustration" />
+        <ul>
+            <li>Réponse n°1</li>
+            <li>Réponse n°2</li>
+            <li>Réponse n°3</li>
+        </ul>
+        <button>Question suivante</button>
+    </template>
 </body>
 <script>
+    var quizzes = [];
+
+    function getQuiz(id) {
+        // const result = null;
+        for (const quiz of quizzes) {
+            if (quiz['id'] == id) {
+                result = quiz;
+            }
+        }
+        return result;
+    }
+
     function beginQuiz(event) {
         const quizSelect = document.querySelector('#quiz-select');
-        console.log(quizSelect.value);
+        event.currentTarget.disabled = true;
+        const quiz = getQuiz(quizSelect.value);
+        console.log(quiz);
     }
 
     function quizSelect(event) {
         const select = event.currentTarget;
         const startQuizBtn = document.querySelector('#startBtn');
-        startQuizBtn.disabled = select.value == "";
+        startQuizBtn.disabled = select.value === "";
     }
 
     document.addEventListener('DOMContentLoaded', () => {
@@ -33,7 +65,8 @@
         fetch('./quiz.json')
             .then((response) => response.json())
             .then((json) => {
-                for (const quiz of json) {
+                quizzes = json;
+                for (const quiz of quizzes) {
                     document.querySelector('#quiz-select').innerHTML += `<option value="${quiz['id']}">${quiz['name']}</option>`;
                 }
             });
