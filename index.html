@@ -20,7 +20,7 @@
         <p>Nombre de points : <span id="points">0</span></p>
 
     </section>
-    <template id="question">
+    <template id="template-question">
         <h4>Question n°xx</h4>
         <p>Texte de la question</p>
         <audio src="#" controls></audio>
@@ -50,6 +50,9 @@
         const quizSelect = document.querySelector('#quiz-select');
         event.currentTarget.disabled = true;
         const quiz = getQuiz(quizSelect.value);
+
+        const template = document.querySelector('#template-question');
+        
         console.log(quiz);
     }
 
