@@ -18,22 +18,42 @@
     </section>
     <section id="questions">
         <p>Nombre de points : <span id="points">0</span></p>
-
+        <div id="question"></div>
     </section>
     <template id="template-question">
-        <h4>Question n°xx</h4>
-        <p>Texte de la question</p>
-        <audio src="#" controls></audio>
-        <img src="#" alt="illustration" />
-        <ul>
-            <li>Réponse n°1</li>
-            <li>Réponse n°2</li>
-            <li>Réponse n°3</li>
+        <h4 id="index-question"></h4>
+        <p id="text"></p>
+        <audio src="#" controls id="track"></audio>
+        <img src="#" alt="illustration" id="illustration" />
+        <ul id="answers">
         </ul>
-        <button>Question suivante</button>
     </template>
 </body>
 <script>
+    class Game {
+        initialize(quiz) {
+            this.round = 0;
+            this.questions = quiz['questions'];
+            this.played = [];
+            this.score = 0;
+        }
+
+        nextQuestion() {
+            const randomQuestion = this.questions[(Math.floor(Math.random() * this.questions.length))];
+            while (this.played.includes(randomQuestion['id'])) {
+                randomQuestion = this.questions[(Math.floor(Math.random() * this.questions.length))];
+            }
+            this.round++;
+            return randomQuestion;
+        }
+
+        addScore(score) {
+            this.score += score;
+        }
+    }
+
+    var partie = new Game();
+
     var quizzes = [];
 
     function getQuiz(id) {
@@ -46,14 +66,30 @@
         return result;
     }
 
+    function showNextQuestion() {
+        const template = document.querySelector('#template-question');
+        const question = partie.nextQuestion();
+        const questionElt = document.importNode(template.content, true);
+
+        questionElt.querySelector("#text").innerText = question['question'];
+        for (const answer of question["answers"]) {
+            const liElt = document.createElement('li');
+            liElt.innerText = answer['answer'];
+            questionElt.querySelector("#answers").appendChild(liElt);
+        }
+
+        const questionZone = document.querySelector('#question');
+        questionZone.appendChild(questionElt);
+        console.log(question);
+    }
+
     function beginQuiz(event) {
         const quizSelect = document.querySelector('#quiz-select');
         event.currentTarget.disabled = true;
         const quiz = getQuiz(quizSelect.value);
 
-        const template = document.querySelector('#template-question');
-        
-        console.log(quiz);
+        partie.initialize(quiz);
+        showNextQuestion();
     }
 
     function quizSelect(event) {
