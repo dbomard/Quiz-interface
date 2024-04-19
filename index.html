@@ -5,6 +5,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz Puissance Soul</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        .proposition {
+            border: 2px solid;
+            border-radius: 1em;
+            width: max-content;
+            min-width: 20vw;
+            text-align: center;
+            padding: 5px 7px;
+            margin-bottom: 5px;
+        }
+
+        .proposition:hover {
+            background-color: lightgray;
+        }
+
+        .clickable {
+            cursor: pointer;
+        }
+
+        .win {
+            border: solid 2px green;
+            background-color: lightgreen;
+        }
+
+        .win:hover {
+            background-color: lightgreen;
+        }
+
+        .lose {
+            border: solid 2px red;
+            background-color: lightcoral;
+        }
+
+        .lose:hover {
+            background-color: lightcoral;
+        }
+    </style>
 </head>
 
 <body>
@@ -14,7 +53,7 @@
         <select name="quiz-select" id="quiz-select">
             <option value="">-- Choisir un quiz --</option>
         </select>
-        <button id="startBtn" disabled>Commencer le quiz</button>
+        <button id="startBtn" class="btn btn-primary" disabled>Commencer le quiz</button>
     </section>
     <section id="questions">
         <p>Nombre de points : <span id="points">0</span></p>
@@ -25,7 +64,7 @@
         <p id="text"></p>
         <audio src="#" controls id="track"></audio>
         <img src="#" alt="illustration" id="illustration" />
-        <ul id="answers">
+        <ul id="answers" class="list-group list-group-numbered">
         </ul>
     </template>
 </body>
@@ -36,6 +75,11 @@
             this.questions = quiz['questions'];
             this.played = [];
             this.score = 0;
+            this.currentAnswer = 0;
+        }
+
+        testAnswer(id) {
+            return this.currentAnswer == id;
         }
 
         nextQuestion() {
@@ -66,6 +110,23 @@
         return result;
     }
 
+    function clickProposition(event) {
+        const propositions = document.querySelectorAll(".proposition")
+        for (const proposition of propositions) {
+            console.log(proposition);
+            proposition.removeEventListener('click', clickProposition);
+            proposition.classList.remove('clickable')
+        }
+        if (partie.testAnswer(event.currentTarget.dataset.id)) {
+            event.currentTarget.classList.add('win');
+            console.log("Gagné !!");
+        } else {
+            event.currentTarget.classList.add('lose');
+            console.log("Perdu");
+            document.querySelector(`li[data-id="${partie.currentAnswer}"]`).classList.add('win');
+        }
+    }
+
     function showNextQuestion() {
         const template = document.querySelector('#template-question');
         const question = partie.nextQuestion();
@@ -74,7 +135,14 @@
         questionElt.querySelector("#text").innerText = question['question'];
         for (const answer of question["answers"]) {
             const liElt = document.createElement('li');
+            liElt.classList.add("proposition");
+            liElt.classList.add("clickable");
             liElt.innerText = answer['answer'];
+            liElt.addEventListener('click', clickProposition);
+            liElt.dataset.id = answer['id'];
+            if (answer['right_answer']) {
+                partie.currentAnswer = answer['id'];
+            }
             questionElt.querySelector("#answers").appendChild(liElt);
         }
 
