@@ -60,6 +60,214 @@
                         "right_answer": 0
                     }
                 ]
+            },
+            {
+                "id": 5,
+                "question": "A ses d\u00e9buts, le rhythm'n'blues d\u00e9signe une forme de blues tr\u00e8s rythmique. Quel est le titre embl\u00e9matique de ce courant musical ?",
+                "deezer_song_id": null,
+                "quiz_id": 3,
+                "answers": [
+                    {
+                        "id": 15,
+                        "answer": "Ray Charles",
+                        "question_id": 5,
+                        "right_answer": 1
+                    },
+                    {
+                        "id": 16,
+                        "answer": "Aretha Franklin",
+                        "question_id": 5,
+                        "right_answer": 0
+                    },
+                    {
+                        "id": 17,
+                        "answer": "Stevie Wonder",
+                        "question_id": 5,
+                        "right_answer": 0
+                    }
+                ]
+            },
+            {
+                "id": 6,
+                "question": "Par quel label, l\u2019auteur compositeur de Soul, Smokey Robinson, est -il produit ?",
+                "deezer_song_id": null,
+                "quiz_id": 3,
+                "answers": [
+                    {
+                        "id": 18,
+                        "answer": "Motown",
+                        "question_id": 6,
+                        "right_answer": 1
+                    },
+                    {
+                        "id": 19,
+                        "answer": "Stax",
+                        "question_id": 6,
+                        "right_answer": 0
+                    },
+                    {
+                        "id": 20,
+                        "answer": "Sun",
+                        "question_id": 6,
+                        "right_answer": 0
+                    }
+                ]
+            },
+            {
+                "id": 7,
+                "question": "Quel est l\u2019un des plus grands interpr\u00e8tes de Southern Soul ayant interpr\u00e9t\u00e9 \u00ab  I can get no (satisfaction) \u00bb ?",
+                "deezer_song_id": null,
+                "quiz_id": 3,
+                "answers": [
+                    {
+                        "id": 21,
+                        "answer": "Al Green",
+                        "question_id": 7,
+                        "right_answer": 1
+                    },
+                    {
+                        "id": 22,
+                        "answer": "Marvin Gaye",
+                        "question_id": 7,
+                        "right_answer": 0
+                    },
+                    {
+                        "id": 23,
+                        "answer": "Mick Jagger",
+                        "question_id": 7,
+                        "right_answer": 0
+                    }
+                ]
+            },
+            {
+                "id": 8,
+                "question": "Quel artiste incarne parfaitement la Memphis Soul, plus urbaine, au cours des ann\u00e9es 70 ?",
+                "deezer_song_id": null,
+                "quiz_id": 3,
+                "answers": [
+                    {
+                        "id": 24,
+                        "answer": "Al Green",
+                        "question_id": 8,
+                        "right_answer": 1
+                    },
+                    {
+                        "id": 25,
+                        "answer": "Marvin Gaye",
+                        "question_id": 8,
+                        "right_answer": 0
+                    },
+                    {
+                        "id": 26,
+                        "answer": "James Brown",
+                        "question_id": 8,
+                        "right_answer": 0
+                    }
+                ]
+            },
+            {
+                "id": 9,
+                "question": "Durant les ann\u00e9es 60, Chicago est le terrain privil\u00e9gi\u00e9 d\u2019une soul effervescente aux sections de cuivres tr\u00e8s chaudes, notamment sous la houlette d\u2019un c\u00e9l\u00e8bre parolier, musicien, producteur et chanteur, qui forge le \u00ab  son de Chicago \u00bb. Lequel ?",
+                "deezer_song_id": null,
+                "quiz_id": 3,
+                "answers": [
+                    {
+                        "id": 27,
+                        "answer": "Curtis Mayfield",
+                        "question_id": 9,
+                        "right_answer": 1
+                    },
+                    {
+                        "id": 28,
+                        "answer": "Prince",
+                        "question_id": 9,
+                        "right_answer": 0
+                    },
+                    {
+                        "id": 29,
+                        "answer": "Stevie Wonder",
+                        "question_id": 9,
+                        "right_answer": 0
+                    }
+                ]
+            },
+            {
+                "id": 10,
+                "question": "Fin 1974, dans quels termes sera qualifi\u00e9e la soul de Philadelphie (dite Philly Soul) , produite par le trio Bell-Gamble-Huff et dont le groupe O\u2019Jays est repr\u00e9sentatif ?",
+                "deezer_song_id": null,
+                "quiz_id": 3,
+                "answers": [
+                    {
+                        "id": 30,
+                        "answer": "Une soul sensuelle, caract\u00e9ris\u00e9e par des influences funk et jazz",
+                        "question_id": 10,
+                        "right_answer": 1
+                    },
+                    {
+                        "id": 31,
+                        "answer": "Une soul influenc\u00e9e par la pop music",
+                        "question_id": 10,
+                        "right_answer": 0
+                    },
+                    {
+                        "id": 32,
+                        "answer": "Une soul influenc\u00e9e par la country music",
+                        "question_id": 10,
+                        "right_answer": 0
+                    }
+                ]
+            },
+            {
+                "id": 11,
+                "question": "Le funk, consid\u00e9r\u00e9 comme la forme la plus africanis\u00e9e du Rhyhtm and blues par sa poly \u2013rythmique tr\u00e8s syncop\u00e9e, conna\u00eet son \u00e2ge d\u2019or entre 1970 et 1975. Un artiste, fort charismatique, s\u2019autoproclame le \u00ab ministre \u00bb du funk. Lequel ?",
+                "deezer_song_id": null,
+                "quiz_id": 3,
+                "answers": [
+                    {
+                        "id": 33,
+                        "answer": "Sly Stone",
+                        "question_id": 11,
+                        "right_answer": 0
+                    },
+                    {
+                        "id": 34,
+                        "answer": "James Brown",
+                        "question_id": 11,
+                        "right_answer": 1
+                    },
+                    {
+                        "id": 35,
+                        "answer": "Miles Davis",
+                        "question_id": 11,
+                        "right_answer": 0
+                    }
+                ]
+            },
+            {
+                "id": 12,
+                "question": "Quel guitariste dans ce domaine interpr\u00e9tera \"Give me the night\"?",
+                "deezer_song_id": 5094396,
+                "quiz_id": 3,
+                "answers": [
+                    {
+                        "id": 36,
+                        "answer": "Jimi Hendrix",
+                        "question_id": 12,
+                        "right_answer": 0
+                    },
+                    {
+                        "id": 37,
+                        "answer": "Eric Clapton",
+                        "question_id": 12,
+                        "right_answer": 0
+                    },
+                    {
+                        "id": 38,
+                        "answer": "George Benson",
+                        "question_id": 12,
+                        "right_answer": 1
+                    }
+                ]
             }
         ]
     }
