@@ -111,6 +111,12 @@
     }
 
     function clickProposition(event) {
+        const propositions = document.querySelectorAll(".proposition")
+        for (const proposition of propositions) {
+            console.log(proposition);
+            proposition.removeEventListener('click', clickProposition);
+            proposition.classList.remove('clickable')
+        }
         if (partie.testAnswer(event.currentTarget.dataset.id)) {
             event.currentTarget.classList.add('win');
             console.log("Gagné !!");
