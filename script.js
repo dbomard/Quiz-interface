@@ -13,11 +13,12 @@ class Game {
     }
 
     nextQuestion() {
-        const randomQuestion = this.questions[(Math.floor(Math.random() * this.questions.length))];
+        let randomQuestion = this.questions[(Math.floor(Math.random() * this.questions.length))];
         while (this.played.includes(randomQuestion['id'])) {
             randomQuestion = this.questions[(Math.floor(Math.random() * this.questions.length))];
         }
         this.round++;
+        this.played.push(randomQuestion['id']);
         return randomQuestion;
     }
 
@@ -64,6 +65,18 @@ function clickProposition(event) {
         console.log("Perdu");
         document.querySelector(`li[data-id="${partie.currentAnswer}"]`).classList.add('win');
     }
+    const btnNextQuestion = document.querySelector("#next-question");
+    if (partie.round >= 10) {
+        btnNextQuestion.addEventListener('click', finishQuiz);
+        btnNextQuestion.innerText = "Résultats";
+    } else {
+        btnNextQuestion.addEventListener('click', showNextQuestion);
+    }
+    btnNextQuestion.hidden = false;
+}
+
+function finishQuiz() {
+
 }
 
 function showNextQuestion() {
@@ -87,6 +100,15 @@ function showNextQuestion() {
         questionElt.querySelector("#answers").appendChild(liElt);
     }
 
+    if (question['deezer_song_id'] !== null) {
+        fetch(`https://api.deezer.com/track/${question['deezer_song_id']}`, {
+            mode: 'cors',
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }).then((response) => console.log(response));
+    }
     const questionZone = document.querySelector('#question');
     questionZone.innerHTML = "";
     questionZone.appendChild(questionElt);
