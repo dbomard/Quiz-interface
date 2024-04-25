@@ -104,6 +104,11 @@ function showNextQuestion() {
     if (question['deezer_song_id'] !== null) {
         audio.src = question['deezer_song_id'];
         audio.hidden = false;
+        audio.onended = function () {
+            console.log("lecture audio à la fin");
+            audio.currentTime = 0;
+            stopAudio();
+        }
     } else {
         audio.hidden = true;
     }
