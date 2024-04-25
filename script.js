@@ -99,20 +99,39 @@ function showNextQuestion() {
         }
         questionElt.querySelector("#answers").appendChild(liElt);
     }
-
+    const audio = questionElt.querySelector("#track")
+    const button = questionElt.querySelector("#illustration");
     if (question['deezer_song_id'] !== null) {
-        fetch(`https://api.deezer.com/track/${question['deezer_song_id']}`, {
-            mode: 'cors',
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        }).then((response) => console.log(response));
+        audio.src = question['deezer_song_id'];
+        audio.hidden = false;
+    } else {
+        audio.hidden = true;
     }
     const questionZone = document.querySelector('#question');
     questionZone.innerHTML = "";
     questionZone.appendChild(questionElt);
+    startAudio();
     console.log(question);
+}
+
+function startAudio(event) {
+    const questionZone = document.querySelector('#question');
+    const audio = questionZone.querySelector("#track");
+    const button = questionZone.querySelector("#illustration");
+    audio.play();
+    button.src = "./bounton_pause.png";
+    button.removeEventListener('click', startAudio);
+    button.addEventListener('click', stopAudio);
+}
+
+function stopAudio(event) {
+    const questionZone = document.querySelector('#question');
+    const audio = questionZone.querySelector("#track");
+    const button = questionZone.querySelector("#illustration");
+    audio.pause();
+    button.src = "./bounton_play.png";
+    button.removeEventListener('click', stopAudio);
+    button.addEventListener('click', startAudio);
 }
 
 function beginQuiz(event) {

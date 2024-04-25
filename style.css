@@ -25,3 +25,11 @@
     border: solid 2px red;
     background-color: lightcoral;
 }
+
+.audio-buttons {
+    max-width: 200px;
+}
+
+.audio-buttons:hover {
+    cursor: pointer;
+}
