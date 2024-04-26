@@ -72,7 +72,7 @@ function clickProposition(event) {
     } else {
         btnNextQuestion.addEventListener('click', showNextQuestion);
     }
-    btnNextQuestion.hidden = false;
+    btnNextQuestion.classList.remove('hide');
 }
 
 function finishQuiz() {
@@ -103,19 +103,24 @@ function showNextQuestion() {
     const button = questionElt.querySelector("#illustration");
     if (question['deezer_song_id'] !== null) {
         audio.src = question['deezer_song_id'];
-        audio.hidden = false;
+        // audio.hidden = false;
         audio.onended = function () {
             console.log("lecture audio à la fin");
             audio.currentTime = 0;
             stopAudio();
         }
     } else {
-        audio.hidden = true;
+        const button = questionElt.querySelector("#illustration");
+        button.src = "./btn_puissance_soul.png";
     }
     const questionZone = document.querySelector('#question');
     questionZone.innerHTML = "";
     questionZone.appendChild(questionElt);
-    startAudio();
+    const btnNextQuestion = document.querySelector("#next-question");
+    btnNextQuestion.classList.add('hide');
+    if (question['deezer_song_id'] !== null) {
+        startAudio();
+    }
     console.log(question);
 }
 
@@ -124,7 +129,7 @@ function startAudio(event) {
     const audio = questionZone.querySelector("#track");
     const button = questionZone.querySelector("#illustration");
     audio.play();
-    button.src = "./bounton_pause.png";
+    button.src = "./btn_pause.png";
     button.removeEventListener('click', startAudio);
     button.addEventListener('click', stopAudio);
 }
@@ -134,7 +139,7 @@ function stopAudio(event) {
     const audio = questionZone.querySelector("#track");
     const button = questionZone.querySelector("#illustration");
     audio.pause();
-    button.src = "./bounton_play.png";
+    button.src = "./btn_play.png";
     button.removeEventListener('click', stopAudio);
     button.addEventListener('click', startAudio);
 }
