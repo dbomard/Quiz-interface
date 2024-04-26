@@ -11,26 +11,30 @@
 </head>
 
 <body>
-    <section id="quizzes">
-        <h1>Quiz</h1>
-        <label for="quiz-select">Choisir un quiz :</label>
-        <select name="quiz-select" id="quiz-select">
-            <option value="">-- Choisir un quiz --</option>
-        </select>
-        <button id="startBtn" class="btn btn-primary" disabled>Commencer le quiz</button>
-    </section>
-    <section id="questions">
-        <p>Nombre de points : <span id="points">0</span></p>
-        <div id="question"></div>
-    </section>
+    <div class="container container-lg">
+        <section id="quizzes">
+            <h1>Quiz</h1>
+            <label for="quiz-select">Choisir un quiz :</label>
+            <select name="quiz-select" id="quiz-select">
+                <option value="">-- Choisir un quiz --</option>
+            </select>
+            <button id="startBtn" class="btn btn-primary" disabled>Commencer le quiz</button>
+        </section>
+        <div class="row">
+            <section id="questions">
+                <p>Nombre de points : <span id="points">0</span></p>
+                <div id="question"></div>
+            </section>
+        </div>
+    </div>
     <template id="template-question">
-        <h4 id="index-question"></h4>
+        <h4 id="index-question" class="pt-3"></h4>
         <p id="text-question"></p>
         <audio src="#" id="track" hidden></audio>
         <img src="./bounton_play.png" alt="illustration" id="illustration" class="audio-buttons" />
-        <ul id="answers" class="list-group list-group-numbered">
+        <ul id="answers" class="list-group list-group-numbered align-items-center mt-3">
         </ul>
-        <button id="next-question" class="btn btn-primary hide mb-3">Question suivante</button>
+        <button id="next-question" class="hide mt-3 mb-5">Question suivante</button>
     </template>
 </body>
 <script src="./script.js"></script>

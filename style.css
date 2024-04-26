@@ -1,12 +1,19 @@
 .proposition {
     border: 2px solid;
     border-radius: 1em;
-    width: max-content;
+    width: 90%;
     min-width: 20vw;
     text-align: center;
     padding: 5px 7px;
     margin-bottom: 5px;
-    background-color: white;
+    background-color: #fdbb27;
+}
+
+#next-question {
+    background-color: #fe952c;
+    width: fit-content;
+    border-radius: 1em;
+    pad: 5px 7px;
 }
 
 .hoverable:hover {
@@ -40,13 +47,32 @@
     background-image: url('./background.jpg');
     background-size: cover;
     background-repeat: no-repeat;
-    max-width: 50vw;
-}
-
-h4 {
-    color: white;
+    /* max-width: 50vw; */
+    text-align: center;
 }
 
 .hide {
     visibility: hidden;
+}
+
+body {
+    font-family: "Century Gothic";
+    font-style: normal;
+    font-variant: normal;
+    line-height: 31.4286px;
+}
+
+h4 {
+    font-size: 28px;
+    font-weight: 600;
+    text-align: center;
+    color: white;
+}
+
+p {
+    font-size: 20px;
+    font-weight: 500;
+    color: white;
+    padding: 0px 15px;
+    text-align: justify;
 }
