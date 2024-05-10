@@ -72,7 +72,7 @@ function clickProposition(event) {
     } else {
         btnNextQuestion.addEventListener('click', showNextQuestion);
     }
-    btnNextQuestion.classList.remove('hide');
+    btnNextQuestion.classList.remove('masquer');
 }
 
 function finishQuiz() {
@@ -117,7 +117,7 @@ function showNextQuestion() {
     questionZone.innerHTML = "";
     questionZone.appendChild(questionElt);
     const btnNextQuestion = document.querySelector("#next-question");
-    btnNextQuestion.classList.add('hide');
+    btnNextQuestion.classList.add('masquer');
     if (question['deezer_song_id'] !== null) {
         startAudio();
     }

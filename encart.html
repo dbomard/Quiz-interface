@@ -71,7 +71,7 @@
 
     #quiz #question {
         background-color: #fe952c;
-        background-image: url('./background.jpg');
+        background-image: url('https://mediatheque.ville-bourges.fr/basicimagedownload.ashx?itemGuid=EEFF3DBC-70EE-4982-9622-8763D024EFE6');
         background-size: cover;
         background-repeat: no-repeat;
         /* max-width: 50vw; */
@@ -85,7 +85,7 @@
         max-width: 400px;
     }
 
-    #quiz .hide {
+    #quiz .masquer {
         visibility: hidden;
     }
 
@@ -361,10 +361,11 @@
     <h4 id="index-question" class="pt-3"></h4>
     <p id="text-question"></p>
     <audio src="#" id="track" hidden></audio>
-    <img src="./bounton_play.png" alt="illustration" id="illustration" class="audio-buttons" />
+    <img src="https://mediatheque.ville-bourges.fr/basicimagedownload.ashx?itemGuid=81D5C5FF-4C9F-4719-98EC-BB67C8106384"
+        alt="illustration" id="illustration" class="audio-buttons" />
     <ul id="answers" class="list-group align-items-center mt-4">
     </ul>
-    <button id="next-question" class="hide mt-3 mb-4">Question suivante</button>
+    <button id="next-question" class="masquer mt-3 mb-4">Question suivante</button>
 </template>
 <script>
     class Game {
@@ -441,7 +442,7 @@
         } else {
             btnNextQuestion.addEventListener('click', showNextQuestion);
         }
-        btnNextQuestion.classList.remove('hide');
+        btnNextQuestion.classList.remove('masquer');
     }
 
     function finishQuiz() {
@@ -479,14 +480,14 @@
             }
         } else {
             const button = questionElt.querySelector("#illustration");
-            button.src = "./btn_puissance_soul.png";
+            button.src = "https://mediatheque.ville-bourges.fr/basicimagedownload.ashx?itemGuid=CE68E0C6-89BF-49EA-B1F2-FA4B15F1BF95";
             button.classList.remove('audio-buttons');
         }
         const questionZone = document.querySelector('#question');
         questionZone.innerHTML = "";
         questionZone.appendChild(questionElt);
         const btnNextQuestion = document.querySelector("#next-question");
-        btnNextQuestion.classList.add('hide');
+        btnNextQuestion.classList.add('masquer');
         if (question['deezer_song_id'] !== null) {
             startAudio();
         }
@@ -498,7 +499,7 @@
         const audio = questionZone.querySelector("#track");
         const button = questionZone.querySelector("#illustration");
         audio.play();
-        button.src = "./btn_pause.png";
+        button.src = "https://mediatheque.ville-bourges.fr/basicimagedownload.ashx?itemGuid=E998F348-E45B-4C58-B8B0-333D25A1F4B4";
         button.title = "Cliquer pour mettre en pause";
         button.removeEventListener('click', startAudio);
         button.addEventListener('click', stopAudio);
@@ -509,7 +510,7 @@
         const audio = questionZone.querySelector("#track");
         const button = questionZone.querySelector("#illustration");
         audio.pause();
-        button.src = "./btn_play.png";
+        button.src = "https://mediatheque.ville-bourges.fr/basicimagedownload.ashx?itemGuid=81D5C5FF-4C9F-4719-98EC-BB67C8106384";
         button.title = "Cliquer pour lancer la lecture";
         button.removeEventListener('click', stopAudio);
         button.addEventListener('click', startAudio);
