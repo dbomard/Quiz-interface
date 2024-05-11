@@ -147,11 +147,13 @@ function stopAudio(event) {
 }
 
 function beginQuiz(event) {
-    const quizSelect = document.querySelector('#quiz-select');
-    event.currentTarget.disabled = true;
-    const quiz = getQuiz(quizSelect.value);
+    // const quizSelect = document.querySelector('#quiz-select');
+    // event.currentTarget.disabled = true;
+    const quiz = getQuiz("3");
 
     partie.initialize(quiz);
+    const quizIntroduction = document.querySelector('#introduction');
+    quizIntroduction.classList.add('retirer');
     showNextQuestion();
 }
 
@@ -162,14 +164,14 @@ function quizSelect(event) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    document.querySelector('#quiz-select').addEventListener('change', quizSelect);
+    // document.querySelector('#quiz-select').addEventListener('change', quizSelect);
     document.querySelector('#startBtn').addEventListener('click', beginQuiz);
     fetch('./quiz.json')
         .then((response) => response.json())
         .then((json) => {
             quizzes = json;
-            for (const quiz of quizzes) {
-                document.querySelector('#quiz-select').innerHTML += `<option value="${quiz['id']}">${quiz['name']}</option>`;
-            }
+            // for (const quiz of quizzes) {
+            //     document.querySelector('#quiz-select').innerHTML += `<option value="${quiz['id']}">${quiz['name']}</option>`;
+            // }
         });
 });

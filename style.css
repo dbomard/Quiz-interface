@@ -1,9 +1,28 @@
+@media screen and (width <=991px) {
+    #quiz .proposition {
+        width: 90%;
+    }
+}
+
+@media screen and (width >=992px) and (width <=1199px) {
+    #quiz .proposition {
+        width: 70%;
+    }
+}
+
+@media screen and (width >=1200px) {
+    #quiz .proposition {
+        width: 50%;
+    }
+}
+
 #quiz .proposition {
     border: 2px solid;
     border-radius: 1em;
-    width: 50%;
+    /* width: 50%; */
     min-width: 20vw;
     text-align: center;
+    font-size: 1.5rem;
     padding: 5px 7px;
     margin-bottom: 5px;
     background-color: #fdbb27;
@@ -11,7 +30,7 @@
     border-color: #ce9419 #6e500e #6e500e #ce9419;
 }
 
-#quiz #next-question {
+#quiz .my-button {
     background-color: #2b3c55;
     width: fit-content;
     border-radius: 1em;
@@ -19,9 +38,10 @@
     color: white;
     box-shadow: 0px 3px 10px #212030;
     font-family: "Century Gothic" !important;
+    font-size: 1rem;
 }
 
-#quiz #next-question {
+#quiz .my-button {
     cursor: pointer;
 }
 
@@ -68,13 +88,25 @@
     transition: opacity .3s;
 }
 
+#quiz {
+    text-align: center;
+}
+
 #quiz #question {
     background-color: #fe952c;
-    background-image: url('./background.jpg');
+    background-image: url('https://mediatheque.ville-bourges.fr/basicimagedownload.ashx?itemGuid=EEFF3DBC-70EE-4982-9622-8763D024EFE6');
     background-size: cover;
     background-repeat: no-repeat;
     /* max-width: 50vw; */
-    text-align: center;
+}
+
+#quiz #introduction {
+    background-color: #fe952c;
+    background-image: url('https://mediatheque.ville-bourges.fr/basicimagedownload.ashx?itemGuid=EEFF3DBC-70EE-4982-9622-8763D024EFE6');
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* max-height: 20vh; */
+
 }
 
 #quiz #illustration {
@@ -88,6 +120,10 @@
     visibility: hidden;
 }
 
+#quiz .retirer {
+    display: none;
+}
+
 #quiz {
     font-family: "Century Gothic";
     font-style: normal;
@@ -96,14 +132,20 @@
 }
 
 #quiz h4 {
-    font-size: 28px;
+    font-size: 2rem;
     font-weight: 600;
     text-align: center;
     color: white;
 }
 
+#quiz h1 {
+    font-size: 5vw;
+    font-weight: 800;
+    color: white;
+}
+
 #quiz p {
-    font-size: 20px;
+    font-size: 1.5rem;
     font-weight: 500;
     color: white;
     padding: 0px 15px;
