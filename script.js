@@ -621,8 +621,18 @@ class Game {
         this.played.push(randomQuestion['id']);
         return randomQuestion;
     }
+
+    stopCountDown() {
+        clearInterval(this.countdown);
+    }
+
+    startCountDown() {
+        this.countdown = setInterval(countDown, 100);
+    }
+
     startTimer() {
         this._timer = Date.now();
+        this.startCountDown();
     }
 
     getTimeLapse() {
@@ -671,9 +681,21 @@ function getQuiz(id) {
     return result;
 }
 
+function countDown() {
+    const bonus = document.querySelector('#bonus');
+    let timeLapse = partie.getTimeLapse();
+    let value = parseInt((300 - timeLapse / 100) / 6);
+    bonus.innerText = Math.max(value, 0);
+}
+
+function resetBonus() {
+    document.querySelector('#bonus').innerText = "0";
+}
+
 function clickProposition(event) {
     const propositions = document.querySelectorAll(".proposition")
     let timeLapse = partie.getTimeLapse();
+    partie.stopCountDown();
     for (const proposition of propositions) {
         console.log(proposition);
         proposition.removeEventListener('click', clickProposition);
@@ -682,7 +704,7 @@ function clickProposition(event) {
     }
     if (partie.testAnswer(event.currentTarget.dataset.id)) {
         event.currentTarget.classList.add('win');
-        let bonus = parseInt((100 - timeLapse / 100) / 2);
+        let bonus = parseInt((300 - timeLapse / 100) / 6);
         console.log("Gagné !!");
         console.log(Math.max(bonus, 0));
         partie.addScore(50 + Math.max(bonus, 0));
@@ -690,6 +712,7 @@ function clickProposition(event) {
         event.currentTarget.classList.add('lose');
         console.log("Perdu");
         document.querySelector(`li[data-id="${partie.currentAnswer}"]`).classList.add('win');
+        resetBonus();
     }
     const btnNextQuestion = document.querySelector("#next-question");
     if (partie.round >= 10) {
@@ -711,8 +734,10 @@ function showNextQuestion() {
     const question = partie.nextQuestion();
     const questionElt = document.importNode(template.content, true);
 
+
     questionElt.querySelector('#index-question').innerText = `Question n°${partie.round}`;
     questionElt.querySelector("#text-question").innerText = question['question'];
+    questionElt.querySelector('#points').innerText = partie.score;
     for (const answer of question["answers"]) {
         const liElt = document.createElement('li');
         liElt.classList.add("proposition");
