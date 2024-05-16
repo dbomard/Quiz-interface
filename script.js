@@ -819,12 +819,13 @@ function quizSelect(event) {
 document.addEventListener('DOMContentLoaded', () => {
     // document.querySelector('#quiz-select').addEventListener('change', quizSelect);
     document.querySelector('#startBtn').addEventListener('click', beginQuiz);
-    fetch('./quiz.json')
-        .then((response) => response.json())
-        .then((json) => {
-            quizzes = json;
-            // for (const quiz of quizzes) {
-            //     document.querySelector('#quiz-select').innerHTML += `<option value="${quiz['id']}">${quiz['name']}</option>`;
-            // }
-        });
+    document.querySelector('.encart-quiz .panel-body').style.padding = "0";
+    // fetch('./quiz.json')
+    //     .then((response) => response.json())
+    //     .then((json) => {
+    //         quizzes = json;
+    // for (const quiz of quizzes) {
+    //     document.querySelector('#quiz-select').innerHTML += `<option value="${quiz['id']}">${quiz['name']}</option>`;
+    // }
+    // });
 });

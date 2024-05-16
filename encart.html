@@ -10,13 +10,13 @@
         }
     }
 
-    @media screen and (width>=992px) and (width <=1199px) {
+    @media screen and (width >=992px) and (width <=1199px) {
         #quiz .proposition {
             width: 70%;
         }
     }
 
-    @media screen and (width>=1200px) {
+    @media screen and (width >=1200px) {
         #quiz .proposition {
             width: 50%;
         }
@@ -28,7 +28,7 @@
         /* width: 50%; */
         min-width: 20vw;
         text-align: center;
-        font-size: 0.8rem;
+        font-size: 0.7rem;
         padding: 5px 7px;
         margin-bottom: 5px;
         background-color: #fdbb27;
@@ -44,7 +44,7 @@
         color: white;
         box-shadow: 0px 3px 10px #212030;
         font-family: "Century Gothic" !important;
-        font-size: 0.8rem;
+        font-size: 0.7rem;
     }
 
     #quiz .my-button {
@@ -100,8 +100,7 @@
 
     #quiz #question {
         background-color: #fe952c;
-        background-image:
-            url('https://mediatheque.ville-bourges.fr/basicimagedownload.ashx?itemGuid=EEFF3DBC-70EE-4982-9622-8763D024EFE6');
+        background-image: url('https://mediatheque.ville-bourges.fr/basicimagedownload.ashx?itemGuid=EEFF3DBC-70EE-4982-9622-8763D024EFE6');
         background-size: cover;
         background-repeat: no-repeat;
         /* max-width: 50vw; */
@@ -109,8 +108,7 @@
 
     #quiz #introduction {
         background-color: #fe952c;
-        background-image:
-            url('https://mediatheque.ville-bourges.fr/basicimagedownload.ashx?itemGuid=EEFF3DBC-70EE-4982-9622-8763D024EFE6');
+        background-image: url('https://mediatheque.ville-bourges.fr/basicimagedownload.ashx?itemGuid=EEFF3DBC-70EE-4982-9622-8763D024EFE6');
         background-size: cover;
         background-repeat: no-repeat;
         /* max-height: 20vh; */
@@ -120,8 +118,8 @@
     #quiz #illustration {
         box-shadow: 0px 15px 20px #212030;
         border-radius: 50%;
-        width: 70%;
-        max-width: 400px;
+        width: 40%;
+        max-width: 300px;
     }
 
     #quiz .masquer {
@@ -140,20 +138,20 @@
     }
 
     #quiz h4 {
-        font-size: 1.5rem;
+        font-size: 2em;
         font-weight: 600;
         text-align: center;
         color: white;
     }
 
     #quiz h1 {
-        font-size: 5vw;
+        font-size: 3em;
         font-weight: 800;
         color: white;
     }
 
     #quiz p {
-        font-size: 0.8rem;
+        font-size: 1.4em;
         font-weight: 500;
         color: white;
         padding: 0px 15px;
@@ -233,7 +231,7 @@
         --bs-dark-border-subtle: #adb5bd;
         --bs-white-rgb: 255, 255, 255;
         --bs-black-rgb: 0, 0, 0;
-        --bs-font-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, " Apple Color Emoji", " Segoe UI Emoji", " Segoe UI Symbol", " Noto Color Emoji";
+        --bs-font-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
         --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
         --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
         --bs-body-font-family: var(--bs-font-sans-serif);
@@ -347,6 +345,11 @@
         margin-bottom: 1rem !important;
     }
 
+    #quiz .my-2 {
+        margin-top: .5rem !important;
+        margin-bottom: .5rem !important;
+    }
+
     #quiz .mb-4 {
         margin-bottom: 1.5rem !important;
     }
@@ -362,6 +365,10 @@
 
     #quiz .pt-3 {
         padding-top: 1rem !important;
+    }
+
+    #quiz .pt-2 {
+        padding-top: 0.5rem !important;
     }
 
     #quiz .list-group {
@@ -397,13 +404,13 @@
 <div id="quiz">
     <section id="introduction">
         <div class="row">
-            <h1>Testez vos connaissances</h1>
+            <h1>Quelle est votre "Puissance Soul ?"</h1>
         </div>
         <!-- <label for="quiz-select">Choisir un quiz :</label>
             <select name="quiz-select" id="quiz-select">
                 <option value="">-- Choisir un quiz --</option>
             </select> -->
-        <button id="startBtn" class="my-button mb-3">Lancer le quiz</button>
+        <button id="startBtn" class="my-button my-2">Lancer le quiz</button>
     </section>
     <div class="row">
         <section id="questions">
@@ -413,14 +420,14 @@
     </div>
 </div>
 <template id="template-question">
-    <h4 class="pt-3"><span id="index-question"></span> / <span id="points">0</span> point</h4>
+    <h4 class="pt-2"><span id="index-question"></span> / <span id="points">0</span> point</h4>
     <p id="text-question"></p>
     <audio src="#" id="track" hidden></audio>
     <img src="./bounton_play.png" alt="illustration" id="illustration" class="audio-buttons" />
-    <h4 class="mt-3">Bonus : <span id="bonus" class></span></h4>
-    <ul id="answers" class="list-group align-items-center mt-4">
+    <h4 class="my-2">Bonus : <span id="bonus" class></span></h4>
+    <ul id="answers" class="list-group align-items-center mt-1">
     </ul>
-    <button id="next-question" class="my-button masquer mt-3 mb-4">Question suivante</button>
+    <button id="next-question" class="my-button masquer my-2">Question suivante</button>
 </template>
 <script>
     quizzes = [
@@ -1244,13 +1251,14 @@
     document.addEventListener('DOMContentLoaded', () => {
         // document.querySelector('#quiz-select').addEventListener('change', quizSelect);
         document.querySelector('#startBtn').addEventListener('click', beginQuiz);
-        fetch('./quiz.json')
-            .then((response) => response.json())
-            .then((json) => {
-                quizzes = json;
-                // for (const quiz of quizzes) {
-                //     document.querySelector('#quiz-select').innerHTML += `<option value="${quiz['id']}">${quiz['name']}</option>`;
-                // }
-            });
+        document.querySelector('.encart-quiz .panel-body').style.padding = "0";
+        // fetch('./quiz.json')
+        //     .then((response) => response.json())
+        //     .then((json) => {
+        //         quizzes = json;
+        // for (const quiz of quizzes) {
+        //     document.querySelector('#quiz-select').innerHTML += `<option value="${quiz['id']}">${quiz['name']}</option>`;
+        // }
+        // });
     });
 </script>
