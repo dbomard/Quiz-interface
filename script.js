@@ -726,7 +726,17 @@ function clickProposition(event) {
 }
 
 function finishQuiz() {
-
+    const results = document.querySelector('#results');
+    results.querySelector('#finalPoints').innerText = partie.score;
+    let congratulation = "Félicitation ! Vous faites partie des experts de la Soul Musique";
+    if(partie.score <= 250){
+        congratulation = "Etes-vous sûr(e) de ne pas vous êter trompé(e) de lieu";
+    }else if(partie.score <= 500){
+        congratulation = "Allez ! On refait un tour de l'expo et on recommence le quiz";
+    }else if(partie.score<=750){
+        congratulation = "Bravo ! Vous avez retenu l'essentiel";
+    }
+    results.classList.remove('retirer');
 }
 
 function showNextQuestion() {
