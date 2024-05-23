@@ -672,7 +672,6 @@ var partie = new Game();
 
 
 function getQuiz(id) {
-    // const result = null;
     for (const quiz of quizzes) {
         if (quiz['id'] == id) {
             result = quiz;
@@ -697,7 +696,7 @@ function clickProposition(event) {
     let timeLapse = partie.getTimeLapse();
     partie.stopCountDown();
     for (const proposition of propositions) {
-        console.log(proposition);
+        // console.log(proposition);
         proposition.removeEventListener('click', clickProposition);
         proposition.classList.remove('clickable')
         proposition.classList.remove('hoverable')
@@ -726,17 +725,23 @@ function clickProposition(event) {
 }
 
 function finishQuiz() {
+    stopAudio();
+    document.querySelector('#questions').classList.add('retirer');
     const results = document.querySelector('#results');
     results.querySelector('#finalPoints').innerText = partie.score;
     let congratulation = "Félicitation ! Vous faites partie des experts de la Soul Musique";
     if (partie.score <= 250) {
-        congratulation = "Etes-vous sûr(e) d'avoir vu la bonne exposition ?";
+        congratulation = "Peut-être devriez-vous commencer par visiter l'exposition ?";
     } else if (partie.score <= 500) {
-        congratulation = "Allez ! Un nouveau tour de l'expo s'impose";
+        congratulation = "Allez ! Un nouveau tour de l'exposition s'impose";
     } else if (partie.score <= 750) {
         congratulation = "Bravo ! Vous avez retenu l'essentiel";
     }
     results.querySelector('#comment').innerText = congratulation;
+    results.querySelector('#start-over').addEventListener('click', () => {
+        document.querySelector('#results').classList.add('retirer');
+        document.querySelector('#introduction').classList.remove('retirer');
+    });
     results.classList.remove('retirer');
 }
 
@@ -765,7 +770,6 @@ function showNextQuestion() {
     const audio = questionElt.querySelector("#track")
     if (question['deezer_song_id'] !== null) {
         audio.src = question['deezer_song_id'];
-        // audio.hidden = false;
         audio.onended = function () {
             console.log("lecture audio à la fin");
             audio.currentTime = 0;
@@ -811,13 +815,11 @@ function stopAudio(event) {
 }
 
 function beginQuiz(event) {
-    // const quizSelect = document.querySelector('#quiz-select');
-    // event.currentTarget.disabled = true;
     const quiz = getQuiz("3");
 
     partie.initialize(quiz);
-    const quizIntroduction = document.querySelector('#introduction');
-    quizIntroduction.classList.add('retirer');
+    document.querySelector('#introduction').classList.add('retirer');
+    document.querySelector('#questions').classList.remove('retirer');
     showNextQuestion();
 }
 
@@ -828,15 +830,6 @@ function quizSelect(event) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    // document.querySelector('#quiz-select').addEventListener('change', quizSelect);
     document.querySelector('#startBtn').addEventListener('click', beginQuiz);
     document.querySelector('.encart-quiz .panel-body').style.padding = "0";
-    // fetch('./quiz.json')
-    //     .then((response) => response.json())
-    //     .then((json) => {
-    //         quizzes = json;
-    // for (const quiz of quizzes) {
-    //     document.querySelector('#quiz-select').innerHTML += `<option value="${quiz['id']}">${quiz['name']}</option>`;
-    // }
-    // });
 });
