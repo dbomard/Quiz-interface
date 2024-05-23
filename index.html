@@ -13,28 +13,28 @@
 
 <body>
     <div id="quiz" class="container container-lg">
-        <section id="introduction">
-            <div class="row">
-                <h1>Quelle est votre "Puissance Soul ?"</h1>
-            </div>
-            <!-- <label for="quiz-select">Choisir un quiz :</label>
-                <select name="quiz-select" id="quiz-select">
-                    <option value="">-- Choisir un quiz --</option>
-                </select> -->
-            <button id="startBtn" class="my-button my-2">Lancer le quiz</button>
-        </section>
         <div class="row">
-            <section id="questions">
+            <section id="introduction" class="expo-background">
+                <h1>Quelle est votre "Puissance Soul ?"</h1>
+                <!-- <label for="quiz-select">Choisir un quiz :</label>
+                    <select name="quiz-select" id="quiz-select">
+                        <option value="">-- Choisir un quiz --</option>
+                    </select> -->
+                <button id="startBtn" class="my-button my-2">Lancer le quiz</button>
+            </section>
+        </div>
+        <div class="row">
+            <section id="questions" class="expo-background">
                 <!-- <p>Nombre de points : <span id="points"></span></p> -->
                 <div id="question"></div>
             </section>
         </div>
-        <section id="results" class="retirer">
-            <div class="row">
+        <div class="row">
+            <section id="results" class="retirer expo-background">
                 <p id="congratulations">Vous avez obtenu <span id="finalPoints"></span> points</p>
-                <p>Vous faites partie des experts de la Soul Musique</p>
-            </div>
-        </section>
+                <p id="comment">Vous faites partie des experts de la Soul Musique</p>
+            </section>
+        </div>
     </div>
     <template id="template-question">
         <h4 class="pt-2"><span id="index-question"></span> / <span id="points">0</span> point</h4>

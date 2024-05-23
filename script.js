@@ -729,13 +729,14 @@ function finishQuiz() {
     const results = document.querySelector('#results');
     results.querySelector('#finalPoints').innerText = partie.score;
     let congratulation = "Félicitation ! Vous faites partie des experts de la Soul Musique";
-    if(partie.score <= 250){
-        congratulation = "Etes-vous sûr(e) de ne pas vous êter trompé(e) de lieu";
-    }else if(partie.score <= 500){
-        congratulation = "Allez ! On refait un tour de l'expo et on recommence le quiz";
-    }else if(partie.score<=750){
+    if (partie.score <= 250) {
+        congratulation = "Etes-vous sûr(e) d'avoir vu la bonne exposition ?";
+    } else if (partie.score <= 500) {
+        congratulation = "Allez ! Un nouveau tour de l'expo s'impose";
+    } else if (partie.score <= 750) {
         congratulation = "Bravo ! Vous avez retenu l'essentiel";
     }
+    results.querySelector('#comment').innerText = congratulation;
     results.classList.remove('retirer');
 }
 

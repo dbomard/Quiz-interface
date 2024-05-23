@@ -92,21 +92,11 @@
     text-align: center;
 }
 
-#quiz #question {
+.expo-background {
     background-color: #fe952c;
     background-image: url('https://mediatheque.ville-bourges.fr/basicimagedownload.ashx?itemGuid=EEFF3DBC-70EE-4982-9622-8763D024EFE6');
     background-size: cover;
     background-repeat: no-repeat;
-    /* max-width: 50vw; */
-}
-
-#quiz #introduction {
-    background-color: #fe952c;
-    background-image: url('https://mediatheque.ville-bourges.fr/basicimagedownload.ashx?itemGuid=EEFF3DBC-70EE-4982-9622-8763D024EFE6');
-    background-size: cover;
-    background-repeat: no-repeat;
-    /* max-height: 20vh; */
-
 }
 
 #quiz #illustration {
